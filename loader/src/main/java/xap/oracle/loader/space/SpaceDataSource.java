@@ -22,15 +22,18 @@ public class SpaceDataSource extends DefaultHibernateSpaceDataSource {
 	public DataIterator initialDataLoad() {
 
 		String hquery = "";
+		//
+		// if (clusterInfo.getNumberOfInstances() > 1) {
+		// hquery =
+		// "from xap.oracle.employee.entity.Employee where MOD(department_id,"
+		// + clusterInfo.getNumberOfInstances()
+		// + ") = "
+		// + (clusterInfo.getInstanceId() - 1);
+		// } else {
+		// hquery = "from xap.oracle.employee.entity.Employee  ";
+		hquery = "\"select rowid, id, processed, firstName, lastname,age, departmentid  from employee\", resultClass = Employee.class";
 
-		if (clusterInfo.getNumberOfInstances() > 1) {
-			hquery = "from xap.oracle.employee.entity.Employee where MOD(department_id,"
-					+ clusterInfo.getNumberOfInstances()
-					+ ") = "
-					+ (clusterInfo.getInstanceId() - 1);
-		} else {
-			hquery = "from xap.oracle.employee.entity.Employee  ";
-		}
+		// }
 
 		DataIterator[] iterators = new DataIterator[1];
 		int iteratorCounter = 0;

@@ -24,10 +24,6 @@ public class EmployeeService implements IEmployeeService {
 	@Qualifier("deltaSpace")
 	private GigaSpace space;
 
-	public Employee findById(Long id) {
-		return dao.findEmloyeeById(id);
-	}
-
 	public Employee findByRowId(String id) {
 		return dao.findEmloyeeByRowId(id);
 
@@ -49,11 +45,11 @@ public class EmployeeService implements IEmployeeService {
 		}
 	}
 
-	@Override
 	@Transactional(value = "txManager")
 	public void removeSpace(String rowId) {
 
-		SQLQuery<Employee> query = new SQLQuery<>(Employee.class, "rowid = ?");
+		SQLQuery<Employee> query = new SQLQuery<Employee>(Employee.class,
+				"rowid = ?");
 		query.setParameter(1, rowId);
 
 		Employee employee = space.take(query);
@@ -67,7 +63,6 @@ public class EmployeeService implements IEmployeeService {
 		}
 	}
 
-	@Override
 	@Transactional(value = "txManager")
 	public void updateSpace(String rowId) {
 		Employee employee = dao.findEmloyeeByRowId(rowId);
@@ -85,4 +80,5 @@ public class EmployeeService implements IEmployeeService {
 	public void setSpace(GigaSpace space) {
 		this.space = space;
 	}
+
 }

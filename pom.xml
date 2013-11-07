@@ -46,13 +46,13 @@
 	</modules>
 
 	<dependencies>
-		<dependency>
+		<dependency>  
 			<groupId>com.gigaspaces</groupId>
 			<artifactId>gs-openspaces</artifactId>
 			<version>${gsVersion}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<dependency> 
 			<groupId>com.gigaspaces</groupId>
 			<artifactId>gs-runtime</artifactId>
 			<version>${gsVersion}</version>
@@ -79,7 +79,7 @@
 			<version>${springVersion}</version>
 			<scope>provided</scope>
 		</dependency>
-
+ 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -125,7 +125,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>3.6.10.Final</version>
+			<version>3.6.1.Final</version>
 		</dependency>
 
 		<dependency>

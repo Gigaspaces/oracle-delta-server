@@ -2,8 +2,8 @@ package xap.oracle.test;
 
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import xap.oracle.employee.dao.EmployeeDAO;
-import xap.oracle.employee.entity.Employee;
+import xap.oracle.employee.dao.CurdEmployeeDAO;
+import xap.oracle.employee.entity.CrudEmployee;
 
 public class DBTest {
 
@@ -12,13 +12,15 @@ public class DBTest {
 		FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext(
 				"classpath:/spring/test-context.xml");
 
-		EmployeeDAO service = context.getBean(EmployeeDAO.class);
+		CurdEmployeeDAO service = context.getBean(CurdEmployeeDAO.class);
 
-		int timer = 3000;
+		int timer = 0;
+		int start = 500;
+		int end = 600;
+		
+		CrudEmployee emp = new CrudEmployee();
 
-		Employee emp = new Employee();
-
-		for (int i = 0; i < 10; i++) {
+		for (int i = start; i < end; i++) {
 
 			emp.setAge(10);
 			emp.setFistName("John");
@@ -33,7 +35,7 @@ public class DBTest {
 
 		}
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = start; i < end; i++) {
 			emp.setAge(22);
 			emp.setFistName("Fritz");
 			emp.setLastName("Shultz" + i);
@@ -47,7 +49,7 @@ public class DBTest {
 
 		}
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = start; i < end; i++) {
 			emp.setId(new Long(i));
 
 			System.out.println("Deleting an Employee");

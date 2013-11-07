@@ -1,14 +1,7 @@
 package xap.oracle.employee.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import xap.model.IDomainEntity;
 
@@ -17,43 +10,30 @@ import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceRouting;
 
 @SpaceClass
-@NamedNativeQueries({ @NamedNativeQuery(name = "findEmployeesByRowIds", query = "select * from Employee e where e.rowid IN (:rowIds)", resultClass = Employee.class) })
-@NamedQueries({
-		@NamedQuery(name = "findEmployeeByRowId", query = "from Employee e where rowid = :rowId"),
-		@NamedQuery(name = "findEmployeeById", query = "from Employee e where id = :id"),
-		@NamedQuery(name = "findEmployeeByDepartmentId", query = "from Employee e where department_id = :departmentId") })
-@Entity(name = "Employee")
-@Table(name = "employee")
+@Entity
 public class Employee implements IDomainEntity<Long> {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "ID", unique = true, nullable = false, precision = 38, scale = 0)
-	private Long id;
-
-	@Transient
 	private String rowid;
 
-	@Column(name = "PROCESSED", nullable = false)
+	@Id
+	private Long id;
+
 	private Boolean processed;
 
-	@Column(name = "FIRST_NAME", nullable = false, length = 255)
-	private String fistName;
+	private String firstName;
 
-	@Column(name = "LAST_NAME", nullable = false, length = 255)
 	private String lastName;
 
-	@Column(name = "AGE", nullable = false)
 	private Integer age;
 
-	@Column(name = "DEPARTMENT_ID", nullable = false)
-	private Integer departmentId;
+	private Integer departmentid;
 
 	public Employee() {
 	}
 
-	@SpaceId(autoGenerate = false)
+	@SpaceId
 	public Long getId() {
 		return id;
 	}
@@ -68,14 +48,6 @@ public class Employee implements IDomainEntity<Long> {
 
 	public void setProcessed(Boolean processed) {
 		this.processed = processed;
-	}
-
-	public String getFistName() {
-		return fistName;
-	}
-
-	public void setFistName(String fistName) {
-		this.fistName = fistName;
 	}
 
 	public String getLastName() {
@@ -95,12 +67,12 @@ public class Employee implements IDomainEntity<Long> {
 	}
 
 	@SpaceRouting
-	public Integer getDepartmentId() {
-		return departmentId;
+	public Integer getDepartmentid() {
+		return departmentid;
 	}
 
-	public void setDepartmentId(Integer department) {
-		this.departmentId = department;
+	public void setDepartmentid(Integer departmentid) {
+		this.departmentid = departmentid;
 	}
 
 	public String getRowid() {
@@ -111,14 +83,20 @@ public class Employee implements IDomainEntity<Long> {
 		this.rowid = rowid;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Employee [id=").append(id).append(", rowid=")
-				.append(rowid).append(", processed=").append(processed)
-				.append(", fistName=").append(fistName).append(", lastName=")
-				.append(lastName).append(", age=").append(age)
-				.append(", departmentId=").append(departmentId).append("]");
-		return builder.toString();
+		return "Employee [rowid=" + rowid + ", id=" + id + ", processed="
+				+ processed + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", age=" + age + ", departmentid=" + departmentid
+				+ "]";
 	}
+
 }

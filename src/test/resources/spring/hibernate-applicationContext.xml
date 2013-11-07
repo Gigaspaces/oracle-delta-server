@@ -32,13 +32,13 @@
 		<property name="jpaPropertyMap">
 			<map>
 				<entry key="hibernate.dialect" value="${db.dialect}" />
-				<entry key="hibernate.show_sql" value="false" />
+				<entry key="hibernate.show_sql" value="true" />
 				<entry key="hibernate.format_sql" value="true" />
 				<entry key="hibernate.generateDdl" value="true" />
 				<entry key="hibernate.jdbc.batch_size" value="20" />
 				<entry key="hibernate.connection.release_mode" value="after_transaction" />
 				<entry key="hibernate.generate_statistics" value="true" />
-				<entry key="hibernate.hbm2ddl.auto" value="validate" />
+				<!-- entry key="hibernate.hbm2ddl.auto" value="validate" /-->
 				<!-- Enable this when you want to create the schema -->
 				<!-- entry key="hibernate.hbm2ddl.auto" value="create" / -->
 			</map>

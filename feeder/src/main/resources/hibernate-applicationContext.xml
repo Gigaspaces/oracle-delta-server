@@ -38,7 +38,7 @@
 				<entry key="hibernate.jdbc.batch_size" value="20" />
 				<entry key="hibernate.connection.release_mode" value="after_transaction" />
 				<entry key="hibernate.generate_statistics" value="false" />
-				<entry key="hibernate.hbm2ddl.auto" value="validate" />
+				<!-- entry key="hibernate.hbm2ddl.auto" value="validate" /-->
 				<!-- Enable this when you want to create the schema -->
 				<!-- entry key="hibernate.hbm2ddl.auto" value="create" / -->
 			</map>

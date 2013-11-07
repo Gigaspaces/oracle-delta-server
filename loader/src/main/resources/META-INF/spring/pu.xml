@@ -13,23 +13,19 @@
    http://www.openspaces.org/schema/sla http://www.openspaces.org/schema/9.6/sla/openspaces-sla.xsd">
 
 
-	<os-core:space id="space" url="/./deltaSpace" schema="persistent"
-		space-data-source="hibernateSpaceDataSource">
-		<os-core:properties>
-			<props>
-				<!-- Use ALL IN CACHE -->
-				<prop key="space-config.engine.cache_policy">1</prop>
-				<prop key="cluster-config.cache-loader.external-data-source">true</prop>
-				<prop key="cluster-config.cache-loader.central-data-source">true</prop>
-			</props>
-		</os-core:properties>
-	</os-core:space>
+	<!-- os-core:space id="space" url="/./deltaSpace" schema="persistent" space-data-source="hibernateSpaceDataSource"> 
+		<prop key="space-config.engine.cache_policy">1</prop> <prop key="cluster-config.cache-loader.external-data-source">true</prop> 
+		<prop key="cluster-config.cache-loader.central-data-source">true</prop> </props> 
+		</os-core:properties> </os-core:space -->
+
+	<os-core:space id="space" url="/./deltaSpace" />
 
 	<os-core:giga-space id="deltaSpace" space="space" />
 
-	<bean id="hibernateSpaceDataSource" class="xap.oracle.loader.space.SpaceDataSource">
-		<constructor-arg ref="sessionFactory" />
-	</bean>
+	<!-- bean id="hibernateSpaceDataSource" class="xap.oracle.loader.space.SpaceDataSource"> 
+		<constructor-arg ref="sessionFactory" /> </bean -->
+
+	<bean id="dataLoader" class="xap.oracle.loader.space.DataLoader" />
 
 	<import resource="classpath*:/application-context.xml" />
 	<import resource="classpath*:/dataSource-applicationContext.xml" />

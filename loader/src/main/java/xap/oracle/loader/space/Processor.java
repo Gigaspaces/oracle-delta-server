@@ -28,22 +28,19 @@ public class Processor {
 	@PostConstruct
 	private void initListener() {
 		insertNotifier = new SimpleNotifyContainerConfigurer(space)
-				.notifyAll(false)
-				.notifyWrite(true)
+				.notifyAll(false).notifyWrite(true)
 				.eventListenerAnnotation(new InsertEmployeeListener())
 				.notifyContainer();
 		insertNotifier.start();
 
 		updateNotifier = new SimpleNotifyContainerConfigurer(space)
-				.notifyAll(false)
-				.notifyUpdate(true)
+				.notifyAll(false).notifyUpdate(true)
 				.eventListenerAnnotation(new UpdateEmployeeListener())
 				.notifyContainer();
 		updateNotifier.start();
 
 		removeNotifier = new SimpleNotifyContainerConfigurer(space)
-				.notifyAll(false)
-				.notifyTake(true)
+				.notifyAll(false).notifyTake(true)
 				.eventListenerAnnotation(new RemoveEmployeeListener())
 				.notifyContainer();
 		removeNotifier.start();

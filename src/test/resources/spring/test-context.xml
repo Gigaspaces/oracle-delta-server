@@ -15,6 +15,11 @@
 	<!-- Scan the packages for annotations / -->
 	<context:component-scan base-package="xap.oracle.employee.dao" />
 
+ 	<import resource="gs-applicationContext.xml" />
+
+
+	<!-- bean id="dataLoader" class="xap.oracle.loader.space.DataLoader" / -->
+
 	<import resource="dataSource-applicationContext.xml" />
 	<import resource="hibernate-applicationContext.xml" />
 </beans>
