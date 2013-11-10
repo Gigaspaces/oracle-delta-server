@@ -14,9 +14,9 @@ public class DBTest {
 
 		CurdEmployeeDAO service = context.getBean(CurdEmployeeDAO.class);
 
-		int timer = 0;
-		int start = 500;
-		int end = 600;
+		int timer = 10000;
+		int start = 0;
+		int end = 100;
 		
 		CrudEmployee emp = new CrudEmployee();
 

@@ -16,10 +16,6 @@ public class LoadAll {
 
 		EmployeeDAO service = context.getBean(EmployeeDAO.class);
 
-		
-	//	Thread.sleep(10000000);
-	//	int timer = 3000;
-
 		 Collection<Employee> employees = service.findAllEmloyeesByPartition(2,1);
 		 
 		 System.out.println(employees.size());
@@ -27,9 +23,7 @@ public class LoadAll {
 		 for(Employee emp : employees)
 		 {
 			 System.out.println(emp);
-		 }
-		 
-		 
+		 } 
 	}
 
 }

@@ -1,7 +1,8 @@
 package xap.oracle.employee.entity;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Entity;
 
 import xap.model.IDomainEntity;
 
@@ -38,6 +39,11 @@ public class Employee implements IDomainEntity<Long> {
 		return id;
 	}
 
+	@SpaceRouting
+	public Integer getDepartmentid() {
+		return departmentid;
+	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -66,10 +72,7 @@ public class Employee implements IDomainEntity<Long> {
 		this.age = age;
 	}
 
-	@SpaceRouting
-	public Integer getDepartmentid() {
-		return departmentid;
-	}
+ 
 
 	public void setDepartmentid(Integer departmentid) {
 		this.departmentid = departmentid;

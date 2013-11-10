@@ -54,7 +54,7 @@ public class OracleChangeListener implements DatabaseChangeListener {
 		statement = dbConnection.prepareStatement(listenerQuery);
 	}
 
-//	@Override
+	@Override
 	public void onDatabaseChangeNotification(
 			DatabaseChangeEvent databaseChangeEvent) {
 

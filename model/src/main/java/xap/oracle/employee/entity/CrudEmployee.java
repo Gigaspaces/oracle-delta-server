@@ -12,14 +12,9 @@ import xap.model.IDomainEntity;
 import com.gigaspaces.annotation.pojo.SpaceRouting;
 
 @NamedNativeQueries({
-//		@NamedNativeQuery(name = "findEmployeesByRowIds", query = "select * from employee e where e.rowid IN (:rowIds)", resultClass = CrudEmployee.class),
 		@NamedNativeQuery(name = "findEmployees", query = "select e.rowid, e.id, e.processed, e.firstName, e.lastname, e.age, e.departmentid from employee e", resultClass = Employee.class),
 		@NamedNativeQuery(name = "findEmployeesByPartition", query = "select rowid, id, processed, firstName, lastname, age, departmentid from employee where mod(departmentid,?) = ? ", resultClass = Employee.class),
 		@NamedNativeQuery(name = "findEmployeeByRowId", query = "select rowid, id, processed, firstName, lastname, age, departmentid from employee where rowId = ? ", resultClass = Employee.class)})
-//@NamedQueries({
-//		@NamedQuery(name = "findEmployeeByRowId", query = "from CrudEmployee e where rowid = :rowId"),
-//		@NamedQuery(name = "findEmployeeById", query = "from CrudEmployee e where id = :id"),
-//		@NamedQuery(name = "findEmployeeByDepartmentId", query = "from CrudEmployee e where department_id = :departmentId") })
 @Entity
 @Table(name = "employee")
 public class CrudEmployee implements IDomainEntity<Long> {
