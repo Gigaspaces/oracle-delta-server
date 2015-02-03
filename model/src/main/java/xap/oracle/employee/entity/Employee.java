@@ -1,8 +1,8 @@
 package xap.oracle.employee.entity;
 
 import javax.persistence.Id;
+import javax.persistence.Entity;
 
-import org.hibernate.annotations.Entity;
 
 import xap.model.IDomainEntity;
 
