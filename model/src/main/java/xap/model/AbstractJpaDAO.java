@@ -1,7 +1,4 @@
-/*
- * Copyright (c) 2003-2011 CEDSIF. All rights reserved.
- */
-
+ 
 package xap.model;
 
 import java.io.Serializable;
